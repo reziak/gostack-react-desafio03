@@ -15,14 +15,14 @@ const UserBar = ({ users, removeUser }) => (
     {users.data.map(user => (
       <div className="user" key={user.id}>
         <div className="user-info">
-          <img src={user.avatar} alt={user.id} className="avatar" />
+          <img src={user.avatar} alt={user.name} className="avatar" />
           <p>
             <strong>{user.name}</strong>
             <small>{user.login}</small>
           </p>
         </div>
         <div className="user-actions">
-          <button className="remove" type="button" onClick={removeUser(user)}>
+          <button className="remove" type="button" onClick={() => removeUser(user)}>
             <i className="fa fa-times-circle" />
           </button>
           <a

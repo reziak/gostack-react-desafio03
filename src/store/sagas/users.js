@@ -24,7 +24,7 @@ export function* addUser(action) {
         name: data.name,
         login: data.login,
         avatar: data.avatar_url,
-        cordinates: action.payload.cordinates,
+        coordinates: action.payload.coordinates,
       };
 
       yield put(UsersActions.addUserSuccess(userData));
