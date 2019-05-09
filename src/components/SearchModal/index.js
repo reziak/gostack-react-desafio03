@@ -8,16 +8,16 @@ import { bindActionCreators } from 'redux';
 import { Creators as UserModalActions } from '../../store/ducks/userModal';
 import { Creators as UsersActions } from '../../store/ducks/users';
 
-// import './styles.css';
+import './styles.css';
 
 Modal.setAppElement(document.getElementById('root'));
 
 class SearchModal extends Component {
   static propTypes = {
-    modal: PropTypes.shape({
+    userModal: PropTypes.shape({
       visible: PropTypes.bool,
       error: PropTypes.oneOfType([PropTypes.oneOf([null]), PropTypes.string]),
-      cordinates: PropTypes.oneOfType([
+      coordinates: PropTypes.oneOfType([
         PropTypes.oneOf([null]),
         PropTypes.shape({
           latitude: PropTypes.number,
@@ -49,10 +49,10 @@ class SearchModal extends Component {
 
     const {
       addUserRequest,
-      modal: { cordinates },
+      userModal: { coordinates },
     } = this.props;
 
-    addUserRequest(userInput, cordinates);
+    addUserRequest(userInput, coordinates);
     this.setState({ userInput: '' });
   };
 
@@ -63,11 +63,11 @@ class SearchModal extends Component {
   };
 
   render() {
-    const { modal, loading } = this.props;
+    const { userModal, loading } = this.props;
     const { userInput } = this.state;
     return (
       <Modal
-        isOpen={modal.visible}
+        isOpen={userModal.visible}
         onRequestClose={this.handleHideModal}
         contentLabel="Add User Modal"
         className="modal-container"
@@ -95,7 +95,7 @@ class SearchModal extends Component {
 }
 
 const mapStateToProps = state => ({
-  modal: state.modal,
+  userModal: state.userModal,
   loading: state.users.loading,
 });
 

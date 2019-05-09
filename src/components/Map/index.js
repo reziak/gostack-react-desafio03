@@ -76,8 +76,8 @@ class Map extends Component {
       >
         {users.data.map(user => (
           <Marker
-            longitude={user.coordinate.longitude}
-            latitude={user.coordinate.latitude}
+            longitude={user.coordinates.longitude}
+            latitude={user.coordinates.latitude}
             key={user.id}
           >
             <img className="avatar-map" src={user.avatar} alt={`${user.name} Avatar`} />
